@@ -1,0 +1,10 @@
+name = "example-api"
+compatibility_date = "2023-12-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "example-d1-database"
+database_id = "111-222-333"
+migrations_table = "d1_migrations"
+migrations_dir = "src/db/migrations"
+
