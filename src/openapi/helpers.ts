@@ -23,6 +23,15 @@ export const json200Response = (schema: z.ZodType, description: string) => ({
   },
 });
 
+export const redirectResponse = (description: string, example: string) => ({
+  302: {
+    description,
+    headers: z.object({
+      location: z.string().openapi({ example }),
+    }),
+  },
+});
+
 export const json401Response = {
   401: {
     content: {

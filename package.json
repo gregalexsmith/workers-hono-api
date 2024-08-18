@@ -10,14 +10,14 @@
     "db:migrate:prod": "npx wrangler d1 migrations apply workers-hono-api-example --remote"
   },
   "dependencies": {
-    "@hono/swagger-ui": "^0.2.1",
-    "@hono/zod-openapi": "^0.9.10",
-    "@lucia-auth/adapter-sqlite": "^3.0.1",
+    "@hono/swagger-ui": "^0.4.0",
+    "@hono/zod-openapi": "^0.15.3",
+    "@lucia-auth/adapter-sqlite": "^3.0.2",
     "drizzle-orm": "^0.30.4",
-    "hono": "^4.1.5",
-    "lucia": "^3.1.1",
-    "oslo": "^1.1.3",
-    "zod": "^3.22.4"
+    "hono": "^4.5.5",
+    "lucia": "^3.2.0",
+    "oslo": "^1.2.0",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20240208.0",
