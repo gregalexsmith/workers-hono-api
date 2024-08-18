@@ -15,25 +15,23 @@ const TaskSchema = z
 
 const app = new OpenAPIHono<Context>();
 
-app.openapi(
-  createRoute({
-    method: "get",
-    path: "/",
-    responses: {
-      ...json200Response(z.array(TaskSchema), "List of user's tasks"),
-      ...json401Response,
-    },
-  }),
-  async (c) => {
-    const taskModule = TaskModule(getDB(c));
-    const user = c.get("user");
-    if (!user) {
-      return c.json({ message: "Unauthorized" }, 401);
-    }
-    const tasks = await taskModule.getTasksByUserId(user.id);
-    return c.json(tasks);
+const getTasks = createRoute({
+  method: "get",
+  path: "/",
+  responses: {
+    ...json200Response(z.array(TaskSchema), "List of user's tasks"),
+    ...json401Response,
   },
-);
+});
+app.openapi(getTasks, async (c) => {
+  const taskModule = TaskModule(getDB(c));
+  const user = c.get("user");
+  if (!user) {
+    return c.json({ message: "Unauthorized" }, 401);
+  }
+  const tasks = await taskModule.getTasksByUserId(user.id);
+  return c.json(tasks, 200);
+});
 
 app.openapi(
   createRoute({
@@ -53,7 +51,7 @@ app.openapi(
     }
     const { content } = c.req.valid("json");
     const task = await taskModule.createTask(content, user.id);
-    return c.json(task);
+    return c.json(task, 200);
   },
 );
 
