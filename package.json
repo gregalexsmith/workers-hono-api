@@ -22,13 +22,13 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20240208.0",
+    "@cloudflare/workers-types": "^4.20241205.0",
     "@typescript-eslint/eslint-plugin": "^7.4.0",
     "@typescript-eslint/parser": "^7.4.0",
     "better-sqlite3": "^11.6.0",
     "drizzle-kit": "^0.29.1",
     "eslint": "^8.57.0",
     "prettier": "3.4.2",
-    "wrangler": "^3.32.0"
+    "wrangler": "^3.93.0"
   }
 }
