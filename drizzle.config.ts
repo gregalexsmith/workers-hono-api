@@ -1,6 +1,16 @@
-import type { Config } from "drizzle-kit";
+import { defineConfig } from "drizzle-kit";
+import { findSqliteDatabase } from "./bin/find-db";
 
-export default {
+/**
+ * This is currently assumed to be for local development
+ * - migrations should be generated and tracked in git
+ * - And applies them with `wrangler d1 migrations apply` to the appropriate environment
+ */
+export default defineConfig({
+  dialect: "sqlite",
   schema: "./src/db/schema.ts",
   out: "./src/db/migrations",
-} satisfies Config;
+  dbCredentials: {
+    url: findSqliteDatabase(),
+  },
+});
