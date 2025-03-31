@@ -4,7 +4,7 @@ import { findSqliteDatabase } from "./bin/find-db";
 /**
  * This is currently assumed to be for local development
  * - migrations should be generated and tracked in git
- * - And applies them with `wrangler d1 migrations apply` to the appropriate environment
+ * - and applied with `wrangler d1 migrations apply` to the appropriate environment
  */
 export default defineConfig({
   dialect: "sqlite",
